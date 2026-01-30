@@ -1,0 +1,36 @@
+.how {
+  width: 100%;
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.how__container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.how__image {
+  width: 100%;
+  max-width: 1060px;
+
+  padding: 0;            
+  border-radius: 16px;   
+  overflow: hidden;      
+
+
+  box-shadow:
+    0 18px 40px rgba(255, 140, 0, 0.16),
+    0 6px 40px rgba(255, 140, 0, 0.16);
+}
+
+.how__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+
+  transform: scale(1.04);   /* “zoom” sutil para cortar bordes blancos */
+}

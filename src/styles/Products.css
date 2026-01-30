@@ -1,0 +1,107 @@
+.products {
+  width: 100%;
+  padding: 32px 24px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.products-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* Cards base */
+.product-card {
+  background: #fbf6f1;
+  border-radius: 22px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 340px;
+
+  /* estado inicial: centro -> centro (chico a grande) */
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(10px);
+
+  transform-origin: center;
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 650ms ease,
+    box-shadow 250ms ease;
+  will-change: transform, opacity, filter;
+}
+
+/* Cuando la sección entra al viewport */
+.products-container.is-visible .product-card {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Delay para sensación “pro” */
+.products-container.is-visible .product-card:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.products-container.is-visible .product-card:nth-child(2) {
+  transition-delay: 120ms;
+}
+
+/* Media */
+.product-card__media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.product-card__media img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 14px;
+}
+
+.product-card--info {
+  justify-content: center;
+}
+
+.product-card__media--full img {
+  max-width: 560px;
+}
+
+/* Hover sutil pro (sin romper animación) */
+.product-card:hover {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
+  transform: scale(1.01);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    transform: scale(0.94);
+  }
+
+  .products-container.is-visible .product-card {
+    transform: scale(1);
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

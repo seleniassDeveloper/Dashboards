@@ -1,0 +1,132 @@
+.pricing {
+  padding: 60px 16px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing__title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Card */
+.pricing__card {
+  background: #f3f3f3;
+  border-radius: 18px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pricing__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(255, 140, 0, 0.16);
+  background: #ffffff;
+}
+
+.pricing__card--featured {
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.pricing__card--featured:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
+.pricing__label {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.pricing__price {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+  color: #111;
+}
+
+/* Button */
+.pricing__button {
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 0;
+  font-weight: 700;
+  background: #dcdcdc;
+  color: #111;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+}
+
+.pricing__button:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.pricing__button--featured {
+  background: #111;
+  color: #fff;
+}
+
+/* Modal look */
+.pricing__modal {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 0;
+}
+
+.pricing__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing__form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.pricing__form input:focus {
+  outline: none;
+  border-color: #ff9a3c;
+  box-shadow: 0 0 0 2px rgba(255, 154, 60, 0.2);
+}
+
+.pricing__secure {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #666;
+}
+
+.pricing__payBtn {
+  margin-top: 10px;
+  border-radius: 12px;
+  padding: 12px 0;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pricing__grid {
+    grid-template-columns: 1fr;
+  }
+}
