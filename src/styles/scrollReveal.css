@@ -86,3 +86,21 @@
     filter: none;
   }
 }
+
+.landingManualBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.landingManualBtn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}

@@ -1,46 +1,58 @@
-import { useEffect, useRef, useState } from "react";
-import emprendedorImg from "../assets/img1secc2.png";
-import howItWorksImg from "../assets/image2.png";
-import "../../src/styles/Products.css";
+import { Link } from "react-router-dom";
 
 export default function ProductCards() {
-  const sectionRef = useRef(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
-        // Si querés que se repita cada vez que subís/bajás, descomentá:
-        // else setInView(false);
-      },
-      { threshold: 0.25 } // dispara cuando ~25% de la sección es visible
-    );
-
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="products">
-      <div className={`products-container ${inView ? "is-visible" : ""}`}>
-        {/* Card 1 - entra desde izquierda */}
-        <article className="product-card product-card--fromLeft">
-          <div className="product-card__media">
-            <img src={emprendedorImg} alt="Dashboard Emprendedor" />
-          </div>
-        </article>
+    <section
+      style={{
+        display: "grid",
+        gap: 24,
+      }}
+    >
+      <article
+        style={{
+          background: "#fbf8f5",
+          borderRadius: 28,
+          padding: 24,
+          border: "1px solid #eee1d2",
+        }}
+      >
+        <img
+          src="/dashboard-product-card.png"
+          alt="Dashboard emprendedor"
+          style={{
+            width: "100%",
+            borderRadius: 20,
+            display: "block",
+            marginBottom: 18,
+          }}
+        />
 
-        {/* Card 2 - entra desde derecha */}
-        <article className="product-card product-card--info product-card--fromRight">
-          <div className="product-card__media product-card__media--full">
-            <img src={howItWorksImg} alt="Cómo funciona" />
-          </div>
-        </article>
-      </div>
+        <h3 style={{ margin: 0, fontSize: 36, lineHeight: 1.05 }}>
+          Dashboard Emprendedor
+        </h3>
+
+        <p style={{ color: "#555", marginTop: 12 }}>
+          Una solución visual para organizar citas, clientes, trabajadores, pagos
+          y métricas de negocio.
+        </p>
+
+        <div style={{ marginTop: 18 }}>
+          <Link
+            to="/app"
+            style={{
+              display: "inline-flex",
+              padding: "12px 18px",
+              borderRadius: 12,
+              background: "#111827",
+              color: "#fff",
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            Abrir demo
+          </Link>
+        </div>
+      </article>
     </section>
   );
 }
