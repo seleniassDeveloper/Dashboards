@@ -5,7 +5,6 @@ import FeatureRow from "./FeatureRow.jsx";
 import Pricing from "./Pricing.jsx";
 import ProductCards from "./ProductCards.jsx";
 import "../styles/scrollReveal.css";
-
 import portadaImg from "../assets/imageini.png";
 
 export default function Home() {
@@ -36,19 +35,23 @@ export default function Home() {
         </section>
 
         <section className="reveal landing-explainer">
-          <div className="landing-explainer__intro">
-            <span className="landing-explainer__eyebrow">Cómo funciona</span>
+    <div className="landing-explainer__intro">
+  <div className="landing-explainer__header">
+    <h2 className="landing-explainer__title">
+      Entiende el dashboard en menos de un minuto
+    </h2>
 
-            <h2 className="landing-explainer__title">
-              Entiende el dashboard en menos de un minuto
-            </h2>
+    <span className="landing-explainer__eyebrow">
+      Cómo funciona
+    </span>
+  </div>
 
-            <p className="landing-explainer__lead">
-              Todo ocurre en una sola plataforma: entiendes el estado general del
-              negocio, gestionas la operación diaria y revisas calendario, pagos
-              y rendimiento sin cambiar de vista.
-            </p>
-          </div>
+  <p className="landing-explainer__lead">
+    Todo ocurre en una sola plataforma: entiendes el estado general del
+    negocio, gestionas la operación diaria y revisas calendario, pagos
+    y rendimiento sin cambiar de vista.
+  </p>
+</div>
 
           <div className="landing-explainer__layout">
             <div className="landing-explainer__visual">

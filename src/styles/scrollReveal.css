@@ -12,15 +12,25 @@
 }
 
 .landing-explainer__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: #111827;
+  background: #e27a0b77;
   color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-size: 11px;
+  padding: 6px 10px;
+    border-radius: 20px!important;
+
+}
+
+.landing-explainer__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  
+}
+
+.landing-explainer__title {
+  margin: 0;
+  flex: 1;
 }
 
 .landing-explainer__title {

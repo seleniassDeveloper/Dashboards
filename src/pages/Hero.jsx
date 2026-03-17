@@ -27,20 +27,26 @@ export default function Hero() {
             desde una sola plataforma.
           </p>
 
-          <div className="hero-buttons hero-enter-up">
-            <Link to="/app" className="hero-btn hero-btn-primary">
-              Ver demo
-            </Link>
 
-            <a
-              href="/manual_dashboard_completo_clientes.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="hero-btn hero-btn-secondary"
-            >
-              Descargar manual
-            </a>
-          </div>
+
+<div className="hero-buttons hero-enter-up">
+  <Link to="/app" className="hero-btn hero-btn-primary">
+    Iniciar prueba
+  </Link>
+
+  <a
+    href="/manual_dashboard_completo_clientes.pdf"
+    target="_blank"
+    rel="noreferrer"
+    className="hero-btn hero-btn-secondary"
+  >
+    Ver cómo funciona
+  </a>
+</div>
+
+
+
+
         </div>
 
         <div className="hero-image-container hero-enter-right">
