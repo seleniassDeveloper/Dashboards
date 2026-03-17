@@ -19,7 +19,7 @@ export default function HowItWorks() {
 
   return (
     <section style={section}>
-      <h2 style={title}>Cómo funciona</h2>
+      {/* <h2 style={title}>Cómo funciona</h2> */}
 
       <div style={grid}>
         {steps.map((step) => (

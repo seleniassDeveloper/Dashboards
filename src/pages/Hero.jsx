@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
-import heroImage from "../assets/cpt.png";
+import SEC4 from "../assets/imageseccion4.png";
 import "../styles/hero.css";
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero hero--animated">
       <div className="hero-card">
+        <div className="hero-orb hero-orb--one" />
+        <div className="hero-orb hero-orb--two" />
 
-        {/* TEXTO */}
-        <div className="hero-text-block">
+        <div className="hero-text-block hero-enter-left">
+          <span className="hero-kicker">Dashboard + IA</span>
+
           <h1 className="hero-title">
             Organiza tu negocio,
             <br />
@@ -24,7 +27,7 @@ export default function Hero() {
             desde una sola plataforma.
           </p>
 
-          <div className="hero-buttons">
+          <div className="hero-buttons hero-enter-up">
             <Link to="/app" className="hero-btn hero-btn-primary">
               Ver demo
             </Link>
@@ -40,15 +43,25 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* IMAGEN */}
-        <div className="hero-image-container">
-          <img
-            src={heroImage}
-            alt="Vista del dashboard"
-            className="hero-image"
-          />
-        </div>
+        <div className="hero-image-container hero-enter-right">
+          <div className="hero-image-frame hero-float-soft">
+            <img
+              src={SEC4}
+              alt="Vista del dashboard"
+              className="hero-image"
+            />
+          </div>
 
+          <div className="hero-mini-card hero-mini-card--top">
+            <span>Métricas</span>
+            <strong>Estado en tiempo real</strong>
+          </div>
+
+          <div className="hero-mini-card hero-mini-card--bottom">
+            <span>Calendario</span>
+            <strong>Control visual del día</strong>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -4,9 +4,7 @@ export default function FeatureRow() {
   return (
     <section className="featureRow">
       <p className="featureRow__text">
-        Un dashboard en Notion es un espacio donde{" "}
-        <strong>toda la información de tu negocio vive conectada:</strong>{" "}
-        citas, clientes, servicios, empleados y resultados.
+     No es solo un panel visual: es el espacio donde la operación de tu negocio se organiza, se conecta y se convierte en decisiones.
       </p>
     </section>
   );

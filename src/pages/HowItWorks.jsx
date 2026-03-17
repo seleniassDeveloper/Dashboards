@@ -12,17 +12,7 @@ export default function HowItWorks() {
         border: "1px solid #eee1d2",
       }}
     >
-      <h2
-        style={{
-          marginTop: 0,
-          marginBottom: 20,
-          fontSize: 36,
-          lineHeight: 1.05,
-          color: "#1f2937",
-        }}
-      >
-        ¿Cómo funciona?
-      </h2>
+    
 
       <div
         style={{
