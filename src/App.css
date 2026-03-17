@@ -48,13 +48,6 @@ button {
 
 /* HERO */
 
-.hero {
-  border-radius: 28px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #111827, #374151);
-  color: white;
-  padding: 80px 40px;
-}
 
 .hero h1 {
   font-size: 48px;

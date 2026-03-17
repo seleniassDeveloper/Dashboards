@@ -1,6 +1,5 @@
 .hero {
   width: 100%;
-  padding: 90px 16px; /* menos padding lateral -> más ancho */
   display: flex;
   justify-content: center;
 }
@@ -15,7 +14,7 @@
 
   background: #fff;
   border-radius: 26px;
-  padding: 72px;        /* un poco más para verse “hero” */
+  /* padding: 72px;        un poco más para verse “hero” */
 
   display: grid;
   grid-template-columns: 1.05fr 0.95fr; /* texto un poquito más ancho */
@@ -151,4 +150,78 @@
   .hero-float::after {
     animation: none;
   }
+}
+
+.hero {
+  max-width: 1400px;
+  margin: 0 auto;
+  /* padding: 72px 32px; */
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+
+  background: #f8f6f3;
+  border: 1px solid #ead8c6;
+  border-radius: 32px;
+
+  padding: 56px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06);
+}
+
+.hero-title {
+  font-size: clamp(22px, 6vw, 46px);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 800;
+  color: #e79235;
+  letter-spacing: -0.04em;
+}
+
+.hero-description {
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #303030;
+  max-width: 560px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+  border-radius: 14px;
+
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.hero-btn-primary {
+  background: #111827;
+  color: #fff;
+}
+
+.hero-btn-secondary {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+.hero-image {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.1);
 }

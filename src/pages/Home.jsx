@@ -40,39 +40,114 @@ export default function Home() {
           <Hero />
         </section>
 
-        <section className="reveal" style={styles.heroBanner}>
-          <div style={styles.heroBannerText}>
-            <span style={styles.badge}>Dashboard + IA</span>
-            <h2 style={styles.heroTitle}>
-              Organiza tu negocio en un solo lugar
+        <section className="reveal landing-explainer">
+          <div className="landing-explainer__intro">
+            <span className="landing-explainer__eyebrow">Cómo funciona</span>
+            <h2 className="landing-explainer__title">
+              Entiende el dashboard en menos de un minuto
             </h2>
-            <p style={styles.heroText}>
-              Citas, clientes, servicios, trabajadores, pagos y métricas
-              procesadas de forma clara para tomar decisiones más rápido.
+            <p className="landing-explainer__lead">
+              Esta vista resume cómo se usa la aplicación en la práctica: primero
+              ves el estado general del negocio, luego gestionas citas y finalmente
+              revisas calendario, pagos y rendimiento sin salir del mismo sistema.
             </p>
-
-            <div style={styles.actions}>
-              <Link to="/app" style={styles.primaryBtn}>
-                Ver demo
-              </Link>
-
-              <a
-                href="/manual_dashboard_completo_clientes.pdf"
-                target="_blank"
-                rel="noreferrer"
-                style={styles.secondaryBtn}
-              >
-                Descargar manual
-              </a>
-            </div>
           </div>
 
-          <div style={styles.heroBannerImageWrap}>
-            <img
-              src={portadaImg}
-              alt="Vista principal del dashboard"
-              style={styles.heroBannerImage}
-            />
+          <div className="landing-explainer__layout">
+                  <div className="landing-explainer__visual">
+              <div className="landing-explainer__imageFrame">
+                <img
+                  src={portadaImg}
+                  alt="Vista principal del dashboard"
+                  className="landing-explainer__image"
+                />
+              </div>
+
+              <div className="landing-explainer__note landing-explainer__note--top">
+                <span>Vista rápida</span>
+                <strong>Todo conectado</strong>
+                <small>Citas, métricas y control diario</small>
+              </div>
+
+              <div className="landing-explainer__note landing-explainer__note--bottom">
+                <span>En una sola vista</span>
+                <strong>Operación más clara</strong>
+                <small>Menos pasos, menos desorden</small>
+              </div>
+            </div>
+            <div className="landing-explainer__steps">
+              <article className="landing-explainer__step">
+                <div className="landing-explainer__stepNumber">1</div>
+                <div>
+                  <h3>Revisa el panorama general</h3>
+                  <p>
+                    Consulta métricas, gráficos y estados para entender qué está
+                    pasando hoy en tu negocio.
+                  </p>
+                </div>
+              </article>
+
+              <article className="landing-explainer__step">
+                <div className="landing-explainer__stepNumber">2</div>
+                <div>
+                  <h3>Gestiona la operación diaria</h3>
+                  <p>
+                    Filtra citas, cambia estados, edita registros y mantén el flujo
+                    de trabajo ordenado.
+                  </p>
+                </div>
+              </article>
+
+              <article className="landing-explainer__step">
+                <div className="landing-explainer__stepNumber">3</div>
+                <div>
+                  <h3>Decide con datos reales</h3>
+                  <p>
+                    Usa calendario, pagos y rentabilidad para detectar cargas,
+                    ingresos y oportunidades de mejora.
+                  </p>
+                </div>
+              </article>
+
+              <div className="landing-explainer__miniGrid">
+                <div className="landing-explainer__miniCard">
+                  <strong>Panel principal</strong>
+                  <span>Métricas, gráficos y visión general</span>
+                </div>
+                <div className="landing-explainer__miniCard">
+                  <strong>Lista de citas</strong>
+                  <span>Estados, filtros y seguimiento diario</span>
+                </div>
+                <div className="landing-explainer__miniCard">
+                  <strong>Calendario</strong>
+                  <span>Organización clara de horarios</span>
+                </div>
+                <div className="landing-explainer__miniCard">
+                  <strong>Pagos y rentabilidad</strong>
+                  <span>Ingresos, ticket promedio y cierre</span>
+                </div>
+              </div>
+
+              <div className="landing-explainer__actions">
+                <Link
+                  to="/app"
+                  className="landing-explainer__btn landing-explainer__btn--primary"
+                >
+                  Ver demo
+                </Link>
+
+                <a
+                  href="/manual_dashboard_completo_clientes.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="landing-explainer__btn landing-explainer__btn--secondary"
+                >
+                  Descargar manual
+                </a>
+              </div>
+            </div>
+
+      
           </div>
         </section>
 
