@@ -1,0 +1,115 @@
+.brand-header-shell {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+}
+
+.brand-header-cover {
+  min-height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 721px) {
+  .brand-header-cover {
+    min-height: 220px;
+  }
+}
+
+.brand-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.12)
+  );
+}
+
+.brand-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 16px;
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.brand-header-title {
+  margin: 0;
+  font-size: clamp(26px, 6vw, 42px);
+  font-weight: 800;
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+  flex: 1 1 220px;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.brand-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.brand-header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-family: inherit;
+}
+
+.brand-header-btn--primary {
+  border: none;
+  background: #111827;
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .brand-header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    min-height: auto;
+    padding-top: max(72px, env(safe-area-inset-top, 0px));
+  }
+
+  .brand-header-actions {
+    flex-direction: column;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .brand-header-btn,
+  .brand-header-btn--primary {
+    width: 100%;
+    min-height: 48px;
+  }
+}

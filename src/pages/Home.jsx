@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import DemoAppLink from "../components/DemoAppLink.jsx";
+import ManualLink from "../components/ManualLink.jsx";
 import Hero from "./Hero.jsx";
 import FeatureRow from "./FeatureRow.jsx";
 import Pricing from "./Pricing.jsx";
@@ -28,30 +29,27 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="page" style={styles.page}>
-      <main className="stack" style={styles.main}>
+    <div className="page home-page">
+      <main className="stack home-main">
         <section className="reveal">
           <Hero />
         </section>
 
         <section className="reveal landing-explainer">
-    <div className="landing-explainer__intro">
-  <div className="landing-explainer__header">
-    <h2 className="landing-explainer__title">
-      Entiende el dashboard en menos de un minuto
-    </h2>
+          <div className="landing-explainer__intro">
+            <div className="landing-explainer__header">
+              <span className="landing-explainer__eyebrow">Cómo funciona</span>
+              <h2 className="landing-explainer__title">
+                Entiende el dashboard en menos de un minuto
+              </h2>
+            </div>
 
-    <span className="landing-explainer__eyebrow">
-      Cómo funciona
-    </span>
-  </div>
-
-  <p className="landing-explainer__lead">
-    Todo ocurre en una sola plataforma: entiendes el estado general del
-    negocio, gestionas la operación diaria y revisas calendario, pagos
-    y rendimiento sin cambiar de vista.
-  </p>
-</div>
+            <p className="landing-explainer__lead">
+              Todo ocurre en una sola plataforma: entiendes el estado general del
+              negocio, gestionas la operación diaria y revisas calendario, pagos
+              y rendimiento sin cambiar de vista.
+            </p>
+          </div>
 
           <div className="landing-explainer__layout">
             <div className="landing-explainer__visual">
@@ -135,21 +133,13 @@ export default function Home() {
               </div>
 
               <div className="landing-explainer__actions">
-                <Link
-                  to="/app"
-                  className="landing-explainer__btn landing-explainer__btn--primary"
-                >
+                <DemoAppLink className="landing-explainer__btn landing-explainer__btn--primary">
                   Ver demo
-                </Link>
+                </DemoAppLink>
 
-                <a
-                  href="/manual_dashboard_completo_clientes.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="landing-explainer__btn landing-explainer__btn--secondary"
-                >
+                <ManualLink className="landing-explainer__btn landing-explainer__btn--secondary">
                   Descargar manual
-                </a>
+                </ManualLink>
               </div>
             </div>
           </div>
@@ -170,18 +160,3 @@ export default function Home() {
     </div>
   );
 }
-
-const styles = {
-  page: {
-    background: "#f7f7f5",
-    minHeight: "100vh",
-  },
-
-  main: {
-    width: "min(1280px, calc(100% - 32px))",
-    margin: "0 auto",
-    padding: "24px 0 72px",
-    display: "grid",
-    gap: 28,
-  },
-};

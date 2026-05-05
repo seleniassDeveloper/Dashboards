@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-const API = "http://localhost:3001/api";
+import { apiFetch, formatApiError } from "../../lib/apiClient.js";
 
 export default function AIChat() {
   const [question, setQuestion] = useState("");
@@ -14,26 +13,23 @@ export default function AIChat() {
     setQuestion("");
 
     try {
-      const res = await fetch(`${API}/ai/report`, {
+      const data = await apiFetch("/ai/report", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: currentQuestion }),
       });
-
-      const data = await res.json();
-
       setMessages((m) => [
         ...m,
         {
           role: "ai",
-          text: data.summary || "No hay respuesta.",
+          text: data?.summary || "No hay respuesta.",
         },
       ]);
     } catch (err) {
-      console.error(err);
-      setMessages((m) => [...m, { role: "ai", text: "Error consultando IA." }]);
+      setMessages((m) => [
+        ...m,
+        { role: "ai", text: formatApiError(err) },
+      ]);
     }
   }
 
@@ -80,6 +76,7 @@ export default function AIChat() {
           }}
         />
         <button
+          type="button"
           onClick={sendQuestion}
           style={{
             border: "none",

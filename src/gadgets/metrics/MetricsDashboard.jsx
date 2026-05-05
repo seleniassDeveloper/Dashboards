@@ -1,41 +1,93 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { API_CONFIGURED } from "../../config/api.js";
+import { apiFetch, formatApiError } from "../../lib/apiClient.js";
 
-const API = "http://localhost:3001/api";
+const emptyMetrics = {
+  todayAppointments: 0,
+  weekAppointments: 0,
+  cancellations: 0,
+  topService: "-",
+};
 
 export default function MetricsDashboard() {
-  const [metrics, setMetrics] = useState({
-    todayAppointments: 0,
-    weekAppointments: 0,
-    cancellations: 0,
-    topService: "-",
-  });
+  const [metrics, setMetrics] = useState(emptyMetrics);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function loadMetrics() {
-      try {
-        const res = await fetch(`${API}/metrics`);
-        const data = await res.json();
-        setMetrics(data);
-      } catch (err) {
-        console.error("Error cargando métricas", err);
-      }
+  const loadMetrics = useCallback(async () => {
+    if (!API_CONFIGURED) {
+      setError("Configura VITE_API_URL en Vercel.");
+      setLoading(false);
+      return;
     }
-
-    loadMetrics();
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await apiFetch("/metrics");
+      setMetrics({ ...emptyMetrics, ...data });
+    } catch (err) {
+      setError(formatApiError(err));
+      setMetrics(emptyMetrics);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
+  useEffect(() => {
+    loadMetrics();
+  }, [loadMetrics]);
+
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gap: 20,
-      }}
-    >
-      <MetricCard label="Citas hoy" value={metrics.todayAppointments} />
-      <MetricCard label="Citas esta semana" value={metrics.weekAppointments} />
-      <MetricCard label="Cancelaciones" value={metrics.cancellations} />
-      <MetricCard label="Servicio más pedido" value={metrics.topService} />
+    <div>
+      {error ? (
+        <div
+          style={{
+            marginBottom: 16,
+            padding: "12px 14px",
+            borderRadius: 12,
+            background: "#fef2f2",
+            border: "1px solid #fecaca",
+            color: "#991b1b",
+            fontSize: 14,
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: 12,
+            justifyContent: "space-between",
+          }}
+        >
+          <span>{error}</span>
+          <button
+            type="button"
+            onClick={() => loadMetrics()}
+            style={{
+              border: "none",
+              background: "#991b1b",
+              color: "#fff",
+              padding: "8px 14px",
+              borderRadius: 8,
+              fontWeight: 700,
+              cursor: "pointer",
+            }}
+          >
+            Reintentar
+          </button>
+        </div>
+      ) : null}
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          gap: 20,
+          opacity: loading ? 0.6 : 1,
+        }}
+      >
+        <MetricCard label="Citas hoy" value={metrics.todayAppointments} />
+        <MetricCard label="Citas esta semana" value={metrics.weekAppointments} />
+        <MetricCard label="Cancelaciones" value={metrics.cancellations} />
+        <MetricCard label="Servicio más pedido" value={metrics.topService} />
+      </div>
     </div>
   );
 }

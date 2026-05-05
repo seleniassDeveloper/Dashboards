@@ -57,7 +57,11 @@ export default function Pricing() {
 
   return (
     <section className="pricing">
-      <h2 className="pricing__title">Elige tu Plan</h2>
+      <p className="pricing__eyebrow">Precios</p>
+      <h2 className="pricing__title">Elige tu plan</h2>
+      <p className="pricing__subtitle">
+        Planes simples. Sin permanencia innecesaria. Pagas y empiezas.
+      </p>
 
       <div className="pricing__grid">
         {plans.map((p) => (
@@ -73,7 +77,7 @@ export default function Pricing() {
               className={`pricing__button ${p.featured ? "pricing__button--featured" : ""}`}
               onClick={() => openModal(p)}
             >
-              Sign Up
+              Contratar
             </button>
           </div>
         ))}

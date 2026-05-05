@@ -1,0 +1,24 @@
+=== Render (Node + Express + Prisma) ===
+
+Variables de entorno en Render:
+
+  DATABASE_URL=postgresql://...@...neon.tech/neondb?sslmode=require
+  DIRECT_URL=postgresql://...@...neon.tech/neondb?sslmode=require
+  NODE_ENV=production
+  PORT=10000
+
+(En Neon: connection string "pooled" para DATABASE_URL y "direct" para migraciones → DIRECT_URL.)
+
+Build command (ejemplo):
+
+  npm install && npx prisma generate && npm run build
+
+Start command (ejemplo; ajusta a tu entrypoint):
+
+  npx prisma migrate deploy && node dist/index.js
+
+Si no compilas TS a dist, usa:
+
+  npx prisma migrate deploy && node src/index.js
+
+Health check (opcional en Render): GET /api/health si lo implementas.

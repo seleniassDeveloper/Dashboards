@@ -98,11 +98,12 @@ const styles = {
     zIndex: 9999,
   },
   modal: {
-    width: "100%",
-    maxWidth: 700,
+    width: "min(700px, calc(100vw - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)))",
+    maxWidth: "100%",
     background: "#fff",
     borderRadius: 20,
     overflow: "hidden",
+    boxSizing: "border-box",
   },
   header: {
     padding: 24,
@@ -120,6 +121,7 @@ const styles = {
     padding: 24,
     borderTop: "1px solid #e5e7eb",
     display: "flex",
+    flexWrap: "wrap",
     justifyContent: "flex-end",
     gap: 10,
   },

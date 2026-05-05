@@ -1,0 +1,27 @@
+INTEGRAR EL OTRO REPOSITORIO (SIN URL PÚBLICA, SOLO EN TU PC)
+============================================================
+
+Ya puedes usar el panel en la misma app: abre http://localhost:5173/app
+
+Opciones para traer código del otro proyecto de GitHub:
+
+A) COPIAR CÓDIGO (lo más simple)
+   - Clona el otro repo en cualquier carpeta.
+   - Copia sus componentes/páginas dentro de esta carpeta (por ejemplo
+     src/integrated-dashboard/ o src/dashboard/).
+   - En src/dashboard/DashboardPage.jsx, importa tu componente raíz y
+     sustituye <DashboardWorkspace /> (o fusiona rutas en App.jsx).
+
+B) CARPETA HERMANA + ALIAS DE VITE
+   - Coloca los dos repos al mismo nivel, por ejemplo:
+       .../proyectos/DashboardWeb/
+       .../proyectos/MiDashboardApiCliente/
+   - En vite.config.js añade resolve.alias apuntando a la carpeta src del
+     otro proyecto (ver comentario en vite.config.js).
+   - Importa desde ese alias en DashboardPage o DashboardWorkspace.
+
+C) MONOREPO (yarn/npm workspaces)
+   - Un solo repositorio con packages/landing y packages/dashboard.
+   - Requiere reorganizar carpetas; útil si vas a desplegar los dos juntos.
+
+El manual PDF puede seguir en public/. Variables opcionales: .env.example

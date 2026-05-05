@@ -1,0 +1,26 @@
+=== prisma/schema.prisma (Neon + migraciones) ===
+
+Copia/pega y adapta el datasource:
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+- DATABASE_URL: URL con pooler de Neon (serverless / muchas conexiones cortas).
+- DIRECT_URL: URL sin pooler (para prisma migrate y introspection).
+
+En .env local (NO subir):
+
+DATABASE_URL="postgresql://...@ep-xxx-pooler.neon.tech/neondb?sslmode=require"
+DIRECT_URL="postgresql://...@ep-xxx.neon.tech/neondb?sslmode=require"
+
+Comandos útiles:
+
+  npx prisma migrate dev
+  npx prisma generate
+
+En Render, tras cada deploy con cambios de schema:
+
+  npx prisma migrate deploy

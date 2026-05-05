@@ -1,0 +1,21 @@
+=== Vercel (este repo React + Vite) ===
+
+1) Project → Settings → Environment Variables (Production + Preview):
+
+   VITE_API_URL=https://TU-SERVICIO.onrender.com/api
+   VITE_FIREBASE_API_KEY=...
+   VITE_FIREBASE_AUTH_DOMAIN=...
+   VITE_FIREBASE_PROJECT_ID=...
+   VITE_FIREBASE_APP_ID=...
+
+   (Las demás VITE_* que uses: VITE_MANUAL_URL, VITE_DEMO_APP_URL, etc.)
+
+2) Build / Output
+   - Framework: Vite
+   - Build: npm run build
+   - Output: dist
+
+3) Firebase → Authentication → Dominios autorizados
+   Añade: tu-dominio.vercel.app y localhost (para preview local).
+
+4) CORS en el backend debe incluir el origen de Vercel (ver 04-express-cors).

@@ -19,11 +19,16 @@
   gap: 52px;
   align-items: center;
 
-  background: linear-gradient(180deg, #faf7f2 0%, #f7f3ee 100%);
-  border: 1px solid #ead8c6;
-  border-radius: 36px;
-  padding: 64px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.07);
+  background: linear-gradient(
+    165deg,
+    #fffefb 0%,
+    var(--color-bg-warm, #f7f4ef) 48%,
+    #f3efe8 100%
+  );
+  border: 1px solid var(--color-border, #e5ddd3);
+  border-radius: var(--radius-xl, 36px);
+  padding: clamp(40px, 6vw, 64px);
+  box-shadow: var(--shadow-md, 0 20px 50px rgba(15, 23, 42, 0.08));
 }
 
 /* fondos vivos */
@@ -68,30 +73,33 @@
 .hero-kicker {
   display: inline-flex;
   width: fit-content;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
-  background: #111827;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-title {
-  font-size: clamp(42px, 6vw, 78px);
-  line-height: 0.93;
+  font-size: clamp(40px, 5.8vw, 76px);
+  line-height: 0.95;
   margin: 0;
   font-weight: 800;
-  color: #e79235;
-  letter-spacing: -0.05em;
+  color: var(--color-accent, #e79235);
+  letter-spacing: -0.045em;
 }
 
 .hero-description {
   margin-top: 28px;
-  font-size: 22px;
-  line-height: 1.45;
-  color: #303030;
-  max-width: 620px;
+  font-size: clamp(17px, 1.9vw, 21px);
+  line-height: 1.55;
+  color: var(--color-text-muted, #5c6573);
+  max-width: 560px;
 }
 
 .hero-buttons {
@@ -117,15 +125,19 @@
 }
 
 .hero-btn-primary {
-  background: #e79235;
+  background: var(--color-accent, #e79235);
   color: #fff;
-  box-shadow: 0 14px 28px rgba(17, 24, 39, 0.18);
+  box-shadow: 0 14px 32px rgba(231, 146, 53, 0.38);
+}
+
+.hero-btn-primary:hover {
+  background: var(--color-accent-hover, #d67f22);
 }
 
 .hero-btn-secondary {
-  background: #fff;
-  color: #111827;
-  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-ink, #0f172a);
+  border: 1px solid var(--color-border-strong, #d4cbc0);
 }
 
 .hero-image-container {
@@ -137,26 +149,27 @@
 
 .hero-image-frame {
   width: 100%;
-  border-radius: 30px;
+  border-radius: var(--radius-lg, 26px);
   padding: 14px;
-  background: rgba(255, 255, 255, 0.62);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-md, 0 20px 50px rgba(15, 23, 42, 0.08));
 }
 
 .hero-image {
   width: 100%;
   display: block;
-  border-radius: 22px;
+  border-radius: var(--radius-md, 18px);
 }
 
 /* tarjetas flotantes */
 .hero-mini-card {
   position: absolute;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid #ece2d5;
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--color-border, #e5ddd3);
+  box-shadow: var(--shadow-sm, 0 4px 16px rgba(15, 23, 42, 0.06));
+  border-radius: var(--radius-md, 18px);
   padding: 14px 16px;
   min-width: 190px;
   z-index: 2;
@@ -271,49 +284,67 @@
 /* responsive */
 @media (max-width: 980px) {
   .hero {
-    padding: 18px 16px;
-    min-height: 100vh;
+    padding: 12px max(12px, env(safe-area-inset-left, 0px)) 28px
+      max(12px, env(safe-area-inset-right, 0px));
+    min-height: auto;
   }
 
   .hero-card {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 34px 24px;
+    gap: 28px;
+    padding: clamp(20px, 5vw, 36px) clamp(14px, 4vw, 24px);
+    border-radius: clamp(22px, 5vw, 36px);
   }
 
   .hero-title {
-    font-size: clamp(38px, 10vw, 56px);
+    font-size: clamp(32px, 9vw, 52px);
   }
 
   .hero-description {
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
     max-width: 100%;
   }
 
-  .hero-mini-card--top {
-    top: 10px;
-    right: 10px;
+  .hero-image-container {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
+  .hero-mini-card {
+    position: static;
+    margin-top: 12px;
+    min-width: 0;
+    width: 100%;
+    animation: none;
+  }
+
+  .hero-mini-card--top,
   .hero-mini-card--bottom {
-    left: 10px;
-    bottom: 10px;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
   }
 }
 
 @media (max-width: 640px) {
   .hero-buttons {
     flex-direction: column;
+    width: 100%;
   }
 
   .hero-btn {
     width: 100%;
+    min-height: 48px;
+    padding: 14px 20px;
   }
 
-  .hero-mini-card {
-    position: static;
-    margin-top: 12px;
-    min-width: auto;
+  .hero-kicker {
+    font-size: 11px;
+    padding: 7px 12px;
   }
 }
 

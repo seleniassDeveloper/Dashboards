@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import SEC4 from "../assets/imageseccion4.png";
+import DemoAppLink from "../components/DemoAppLink.jsx";
+import ManualLink from "../components/ManualLink.jsx";
 import "../styles/hero.css";
 
 export default function Hero() {
@@ -27,26 +28,15 @@ export default function Hero() {
             desde una sola plataforma.
           </p>
 
+          <div className="hero-buttons hero-enter-up">
+            <DemoAppLink className="hero-btn hero-btn-primary">
+              Iniciar prueba
+            </DemoAppLink>
 
-
-<div className="hero-buttons hero-enter-up">
-  <Link to="/app" className="hero-btn hero-btn-primary">
-    Iniciar prueba
-  </Link>
-
-  <a
-    href="/manual_dashboard_completo_clientes.pdf"
-    target="_blank"
-    rel="noreferrer"
-    className="hero-btn hero-btn-secondary"
-  >
-    Ver cómo funciona
-  </a>
-</div>
-
-
-
-
+            <ManualLink className="hero-btn hero-btn-secondary">
+              Ver cómo funciona
+            </ManualLink>
+          </div>
         </div>
 
         <div className="hero-image-container hero-enter-right">

@@ -19,12 +19,12 @@ export default function AIChatFloating() {
         <div
           style={{
             position: "fixed",
-            right: 20,
-            bottom: 96,
+            right: "max(12px, env(safe-area-inset-right, 0px))",
+            bottom: "calc(88px + env(safe-area-inset-bottom, 0px))",
             width: 380,
-            maxWidth: "94vw",
+            maxWidth: "min(94vw, calc(100vw - 24px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)))",
             height: 520,
-            maxHeight: "78vh",
+            maxHeight: "min(78vh, calc(100dvh - 120px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)))",
             background: "#fff",
             borderRadius: 18,
             boxShadow: "0 24px 60px rgba(0,0,0,0.18)",
@@ -69,13 +69,17 @@ export default function AIChatFloating() {
       )}
 
       <button
+        type="button"
+        aria-label={open ? "Cerrar asistente IA" : "Abrir asistente IA"}
         onClick={() => setOpen((v) => !v)}
         style={{
           position: "fixed",
-          right: 20,
-          bottom: 20,
-          width: 64,
-          height: 64,
+          right: "max(16px, env(safe-area-inset-right, 0px))",
+          bottom: "max(16px, env(safe-area-inset-bottom, 0px))",
+          width: 56,
+          height: 56,
+          minWidth: 48,
+          minHeight: 48,
           borderRadius: "999px",
           border: "none",
           background: "#111827",
